@@ -1,0 +1,17 @@
+.menu {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px 1px gray;
+  border: 1px solid black;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: rgb(166, 166, 166);
+  color: white;
+}
