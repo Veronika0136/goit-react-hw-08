@@ -1,3 +1,16 @@
+.box {
+  width: 290px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 44%);
+  border-radius: 5px;
+
+  padding: 15px;
+}
+
 .label {
   display: flex;
   flex-direction: column;
@@ -6,11 +19,17 @@
 }
 
 .input {
-  width: 300px;
-  padding: 10px 20px;
-  border: 1px solid black;
+  padding: 5px 20px;
   border-radius: 8px;
-  box-shadow: 1px 1px 1px 1px grey;
   outline: none;
   font-size: 16px;
+  border: 1px solid plum;
+  box-shadow: 0.5px 4px 8px rgb(164, 95, 164);
+  outline: none;
+}
+
+.input:active,
+.input:focus {
+  border: 1px solid black;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
 }

@@ -1,13 +1,15 @@
 .wrapper {
-  width: 300px;
+  width: 290px;
   margin-bottom: 25px;
   margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form {
-  border: 1px solid black;
-  border-radius: 8px;
-  box-shadow: 1px 1px 1px 1px grey;
+  border: none;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 44%);
+  border-radius: 5px;
 
   padding: 15px;
 }
@@ -20,18 +22,18 @@
 }
 
 .input {
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 8px;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
-  border: 1px solid black;
+  border: 1px solid plum;
+  box-shadow: 0.5px 4px 8px rgb(164, 95, 164);
   outline: none;
   font-size: 16px;
 }
 
 .input:active,
 .input:focus {
-  border: 1px solid blue;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px #4f97fc;
+  border: 1px solid black;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
 }
 
 .err {
@@ -45,12 +47,14 @@
   margin-right: auto;
   padding: 8px 12px;
   background-color: white;
-  border: 1px solid blue;
-  border-radius: 5px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 44%);
+  border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .btn:hover {
-  background-color: #4f97fc;
+  background-color: rgb(164, 95, 164);
+  color: white;
 }

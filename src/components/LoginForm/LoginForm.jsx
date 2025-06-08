@@ -7,7 +7,6 @@ const LoginForm = () => {
     <div className={s.wrapper}>
       <Formik
         initialValues={{
-          name: '',
           email: '',
           password: '',
         }}
