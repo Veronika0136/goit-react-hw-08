@@ -1,8 +1,17 @@
 import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import s from './RegistrationForm.module.css';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 
 const RegistrationForm = () => {
+  const dicpatch = useDispatch();
+
+  const handleSubmit = (value, action) => {
+    dicpatch(register(value));
+    action.resetForm();
+  };
+
   return (
     <div className={s.wrapper}>
       <Formik
@@ -11,6 +20,7 @@ const RegistrationForm = () => {
           email: '',
           password: '',
         }}
+        onSubmit={handleSubmit}
       >
         <Form className={s.form}>
           <label className={s.label}>

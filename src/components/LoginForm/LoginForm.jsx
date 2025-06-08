@@ -3,6 +3,11 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import s from './LoginForm.module.css';
 
 const LoginForm = () => {
+  const handleSubmit = (value, action) => {
+    console.log(value);
+    action.resetForm();
+  };
+
   return (
     <div className={s.wrapper}>
       <Formik
@@ -10,6 +15,7 @@ const LoginForm = () => {
           email: '',
           password: '',
         }}
+        onSubmit={handleSubmit}
       >
         <Form className={s.form}>
           <label className={s.label}>
