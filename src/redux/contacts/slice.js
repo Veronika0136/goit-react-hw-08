@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchContacts, deleteContact, addContact } from './operations';
+import { logout } from '../auth/operations';
 
 const slice = createSlice({
   name: 'contacts',
@@ -30,6 +31,11 @@ const slice = createSlice({
         state.error = null;
       })
 
+      .addCase(logout.fulfilled, state => {
+        state.items = [];
+        state.error = null;
+      })
+
       .addMatcher(
         isAnyOf(fetchContacts.rejected, deleteContact.rejected, addContact.rejected),
         (state, action) => {
@@ -40,7 +46,7 @@ const slice = createSlice({
         isAnyOf(fetchContacts.pending, deleteContact.pending, addContact.pending),
         state => {
           state.error = null;
-          state.isLoading = true;
+          state.loading = true;
         }
       );
   },

@@ -1,10 +1,14 @@
 import React from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import s from './LoginForm.module.css';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/operations';
 
 const LoginForm = () => {
+  const dicpatch = useDispatch();
+
   const handleSubmit = (value, action) => {
-    console.log(value);
+    dicpatch(login(value));
     action.resetForm();
   };
 
