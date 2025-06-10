@@ -47,14 +47,17 @@ const slice = createSlice({
         state.isLoggedIn = true;
         state.loading = false;
         state.error = null;
+        state.isRefreshing = false;
       })
-      .addMatcher(
-        isAnyOf(register.pending, login.pending, logout.pending, refreshUser.pending),
-        state => {
-          state.error = null;
-          state.loading = true;
-        }
-      )
+      .addCase(refreshUser.pending, state => {
+        state.isRefreshing = true;
+        state.loading = true;
+        state.error = null;
+      })
+      .addMatcher(isAnyOf(register.pending, login.pending, logout.pending), state => {
+        state.error = null;
+        state.loading = true;
+      })
       .addMatcher(
         isAnyOf(register.rejected, login.rejected, refreshUser.rejected),
         (state, action) => {
