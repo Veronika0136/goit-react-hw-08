@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Contact.module.css';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
+import ModalСlarification from '../ModalСlarification/ModalСlarification';
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Contact = ({ name, number, id }) => {
       <button className={s.btn} onClick={handleDelete}>
         Delete
       </button>
+      <ModalСlarification />
     </div>
   );
 };
