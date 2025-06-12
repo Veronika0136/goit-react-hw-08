@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { openModal } from '../../redux/modal/slice';
 import { MdDelete } from 'react-icons/md';
 import { FaUserEdit } from 'react-icons/fa';
-import { updateContact } from '../../redux/contacts/operations';
+import { setEditContact } from '../../redux/contacts/slice';
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const Contact = ({ name, number, id }) => {
   };
 
   const handleEdit = () => {
-    dispatch(updateContact({ id, name, number }));
+    dispatch(setEditContact({ id, name, number }));
   };
 
   return (

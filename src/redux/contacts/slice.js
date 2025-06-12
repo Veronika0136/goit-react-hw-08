@@ -12,6 +12,12 @@ const slice = createSlice({
     editContact: null,
   },
 
+  reducers: {
+    setEditContact: (state, action) => {
+      state.editContact = action.payload;
+    },
+  },
+
   extraReducers: builder => {
     builder
 
@@ -42,10 +48,9 @@ const slice = createSlice({
         state.items = state.items.map(contact =>
           contact.id === action.payload.id ? action.payload : contact
         );
+        state.editContact = null;
         state.loading = false;
         state.error = toast.success('The contact has been changed.');
-        state.editContact = action.payload;
-        console.log(state.editContact);
       })
 
       .addMatcher(
@@ -73,5 +78,7 @@ const slice = createSlice({
       );
   },
 });
+
+export const { setEditContact } = slice.actions;
 
 export default slice.reducer;
