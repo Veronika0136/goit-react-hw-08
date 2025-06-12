@@ -2,12 +2,10 @@ import React from 'react';
 import Contact from '../Contact/Contact';
 import s from './ContactList.module.css';
 import { useSelector } from 'react-redux';
-import { selectError } from '../../redux/contacts/selectors';
 import { selectFilteredContacts } from '../../redux/filters/selectors';
+import ModalСlarification from '../ModalСlarification/ModalСlarification';
 
 const ContactList = () => {
-  const error = useSelector(selectError);
-
   const filterContacts = useSelector(selectFilteredContacts);
 
   return (
@@ -19,7 +17,7 @@ const ContactList = () => {
           </li>
         ))}
       </ul>
-      {error && <h2>Server is dead...</h2>}
+      <ModalСlarification />
     </div>
   );
 };

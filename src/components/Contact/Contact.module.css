@@ -26,8 +26,14 @@
   fill: rgb(146, 46, 146);
 }
 
+.box_btns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .btn {
-  padding: 8px 12px;
+  padding: 5px 15px;
   background-color: white;
   border: none;
   border-radius: 3px;
@@ -36,7 +42,12 @@
   transition: background-color 0.2s ease;
 }
 
-.btn:hover {
+.btn:hover,
+.btn:hover .icon {
   background-color: rgb(146, 46, 146);
   color: white;
+}
+
+.btn:hover .icon {
+  fill: white;
 }

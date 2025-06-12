@@ -1,15 +1,20 @@
 import React from 'react';
 import s from './Contact.module.css';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/operations';
-import ModalСlarification from '../ModalСlarification/ModalСlarification';
+import { openModal } from '../../redux/modal/slice';
+import { MdDelete } from 'react-icons/md';
+import { FaUserEdit } from 'react-icons/fa';
+import { updateContact } from '../../redux/contacts/operations';
 
 const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
-  const handleDelete = () => {
-    dispatch(deleteContact(id));
-    s;
+  const handleModal = () => {
+    dispatch(openModal({ id, name }));
+  };
+
+  const handleEdit = () => {
+    dispatch(updateContact({ id, name, number }));
   };
 
   return (
@@ -28,10 +33,14 @@ const Contact = ({ name, number, id }) => {
           <p>{number}</p>
         </div>
       </div>
-      <button className={s.btn} onClick={handleDelete}>
-        Delete
-      </button>
-      <ModalСlarification />
+      <div className={s.box_btns}>
+        <button className={s.btn} onClick={() => handleModal()}>
+          <MdDelete className={s.icon} />
+        </button>
+        <button className={s.btn} onClick={() => handleEdit()}>
+          <FaUserEdit className={s.icon} />
+        </button>
+      </div>
     </div>
   );
 };
